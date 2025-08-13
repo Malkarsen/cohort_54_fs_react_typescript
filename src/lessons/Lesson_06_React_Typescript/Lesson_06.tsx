@@ -75,7 +75,7 @@ function Lesson_06() {
   // 8. null и undefinded
   let userName: null | string;
   userName = "qwe";
-  
+
   let userAge: undefined | number = undefined;
   userAge = 30;
 
