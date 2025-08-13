@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 50px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid yellowgreen;
+  background-color: rgb(128, 17, 225);
+  color: aliceblue;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.sandwich {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+
+img {
+  align-self: center;
+  width: 25%;
+}
