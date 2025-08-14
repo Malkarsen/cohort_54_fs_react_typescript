@@ -1,13 +1,9 @@
 import "./styles.css";
+import {type Car} from "./types";
 import { v4 } from "uuid";
+import { type ReactNode } from "react";
 
 function Homework_06() {
-  interface Car {
-    brand: string;
-    price: number;
-    isDiesel: boolean;
-  }
-
   const cars: Car[] = [
     { brand: "BMW", price: 20000, isDiesel: true },
     { brand: "Mercedes", price: 22000, isDiesel: false },
@@ -16,7 +12,7 @@ function Homework_06() {
     { brand: "Audi", price: 50000, isDiesel: true },
   ];
 
-  const carList = cars.map((car: Car) => {
+  const carList: ReactNode = cars.map((car: Car) => {
     return (
       <div key={v4()} className="car_card">
         <p className="car_info" id="car_brand">
