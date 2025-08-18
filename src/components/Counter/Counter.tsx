@@ -1,8 +1,8 @@
-import Button from "../Button/Button";
+import Button from "components/Button/Button";
 import "./styles.css";
-import type { CounterProps } from "./types";
+import { type CounterProps } from "./types";
 
-function Counter({onPlus, onMinus, count}: CounterProps) {
+function Counter({ onPlus, onMinus, count }: CounterProps) {
   return (
     <div className="counter_wrapper">
       <div className="button_control">

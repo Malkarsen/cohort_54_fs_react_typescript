@@ -1,30 +1,31 @@
 // Lessons
-// import Lesson_06 from 'lessons/Lesson_06_React_Typescript/Lesson_06'
-import Lesson_07 from 'lessons/Lesson_07_Typescript/Lesson_07'
+// import Lesson_06 from 'lessons/Lesson_06_React_Typescript/Lesson_06';
+// import Lesson_07 from 'lessons/Lesson_07_Typescript/Lesson_07';
 
 // Homeworks
-// import Homework_06 from 'homeworks/Homework_06_React_Typescript/Homework_06'
+// import Homework_06 from 'homeworks/Homework_06_React_Typescript/Homework_06';
+import Homework_07 from "homeworks/Homework_07_Typescript, Parent_Child components/Homework_07";
 
 // Consultations
-// import Consultation_03 from 'consultations/Consultation_03_map_jsx/Consultation_03'
+// import Consultation_03 from 'consultations/Consultation_03_map_jsx/Consultation_03';
 
-import './App.css'
+import "./App.css";
 
 function App() {
-
   return (
-    <div className='app'>
+    <div className="app">
       {/* lessons */}
       {/* <Lesson_06 /> */}
-      <Lesson_07 />
+      {/* <Lesson_07 /> */}
 
       {/* Homeworks */}
       {/* <Homework_06 /> */}
-      
+      <Homework_07 />
+
       {/* Consultations */}
       {/* <Consultation_03 /> */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
