@@ -1,5 +1,5 @@
-import "./styles.css";
 import { useState } from "react";
+import { Homework07PageWrapper } from "./styles";
 
 import Feedback from "components/Feedback/Feedback";
 
@@ -23,7 +23,7 @@ function Homework_07() {
   const isRow = true;
   
   return (
-    <div style={ {display: "flex", flexDirection: isRow ? "row" : "column"}} className="homework07_page_wrapper">
+    <Homework07PageWrapper style={ {display: "flex", flexDirection: isRow ? "row" : "column"}}>
       <Feedback
         onLike={onLike}
         like={like}
@@ -31,7 +31,7 @@ function Homework_07() {
         dislike={dislike}
         resetResults={resetResults}
       />
-    </div>
+    </Homework07PageWrapper>
   );
 }
 

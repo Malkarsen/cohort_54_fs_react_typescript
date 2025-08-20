@@ -1,7 +1,13 @@
-import "./styles.css";
-import {type Car} from "./types";
+import { type Car } from "./types";
 import { v4 } from "uuid";
 import { type ReactNode } from "react";
+import {
+  Homework06PageWrapper,
+  CardsContainer,
+  CarCard,
+  CarInfo,
+  CarBrand,
+} from "./styles";
 
 function Homework_06() {
   const cars: Car[] = [
@@ -14,20 +20,18 @@ function Homework_06() {
 
   const carList: ReactNode = cars.map((car: Car) => {
     return (
-      <div key={v4()} className="car_card">
-        <p className="car_info" id="car_brand">
-          {car.brand}
-        </p>
-        <p className="car_info">Price: {car.price}</p>
-        <p className="car_info">Diesel: {car.isDiesel ? "Yes" : "No"}</p>
-      </div>
+      <CarCard key={v4()}>
+        <CarBrand>{car.brand}</CarBrand>
+        <CarInfo>Price: {car.price}</CarInfo>
+        <CarInfo>Diesel: {car.isDiesel ? "Yes" : "No"}</CarInfo>
+      </CarCard>
     );
   });
 
   return (
-    <div className="homework_06_page_wrapper">
-      <div className="cards_container">{carList}</div>
-    </div>
+    <Homework06PageWrapper>
+      <CardsContainer>{carList}</CardsContainer>
+    </Homework06PageWrapper>
   );
 }
 

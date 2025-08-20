@@ -1,21 +1,13 @@
-import "./styles.css";
 import { type InputProps } from "./types";
+import { FormInputContainer, FormLabel, FormInput } from "./styles";
 
 // С использованием деструктуризации
 function Input({ id, name, type = "text", placeholder, label }: InputProps) {
   return (
-    <div className="form_input_container">
-      <label className="form_label" htmlFor={`input_${name}`}>
-        {label}
-      </label>
-      <input
-        className="form_input"
-        id={id}
-        name={name}
-        type={type}
-        placeholder={placeholder}
-      />
-    </div>
+    <FormInputContainer>
+      <FormLabel htmlFor={`input_${name}`}>{label}</FormLabel>
+      <FormInput id={id} name={name} type={type} placeholder={placeholder} />
+    </FormInputContainer>
   );
 }
 // без использования деструктуризации - синтаксис увеличивается
