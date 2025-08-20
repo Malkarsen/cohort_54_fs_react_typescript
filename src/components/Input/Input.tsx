@@ -2,11 +2,26 @@ import { type InputProps } from "./types";
 import { FormInputContainer, FormLabel, FormInput } from "./styles";
 
 // С использованием деструктуризации
-function Input({ id, name, type = "text", placeholder, label }: InputProps) {
+function Input({
+  id,
+  name,
+  type = "text",
+  placeholder,
+  label,
+  disabled = false,
+  error = undefined
+}: InputProps) {
   return (
     <FormInputContainer>
       <FormLabel htmlFor={`input_${name}`}>{label}</FormLabel>
-      <FormInput id={id} name={name} type={type} placeholder={placeholder} />
+      <FormInput
+        id={id}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        disabled={disabled}
+        $error={error}
+      />
     </FormInputContainer>
   );
 }

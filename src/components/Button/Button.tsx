@@ -7,7 +7,7 @@ export default function Button({
   isRed = false,
   disabled = false,
   onClick = () => {},
-  children,
+  children
 }: ButtonProps) {
   return (
     <ButtonComponent
