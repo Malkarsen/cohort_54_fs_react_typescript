@@ -1,10 +1,10 @@
-import "./styles.css";
 import { WEATHER_CODES } from "./types";
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
 import Counter from "components/Counter/Counter";
 
 import { useState } from "react";
+import { Lesson07PageWrapper } from "./styles";
 
 // !! Есть 2 основных способа вызова перерендера(обновления) компонента:
 // 1 - изменения state(посредством вызова функции setState())
@@ -117,19 +117,19 @@ function Lesson_07() {
 
   const sendDataToServer = () => {
     console.log(`Sending ${count} to server`);
-  }
+  };
 
   return (
-    <div className="lesson_07_page_wrapper">
-      <Button buttonName="Send" onClick={sendDataToServer}/>
+    <Lesson07PageWrapper>
+      <Button buttonName="Send" onClick={sendDataToServer} />
       <Input
         id="test-id"
         name="test"
         label="Test label"
         placeholder="Test placeholder"
       />
-      <Counter onPlus={onPlus} onMinus={onMinus} count={count}/>
-    </div>
+      <Counter onPlus={onPlus} onMinus={onMinus} count={count} />
+    </Lesson07PageWrapper>
   );
 }
 export default Lesson_07;

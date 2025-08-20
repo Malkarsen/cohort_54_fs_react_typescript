@@ -7,10 +7,15 @@ export default function Button({
   isRed = false,
   disabled = false,
   onClick = () => {},
-  children,
+  children
 }: ButtonProps) {
   return (
-    <ButtonComponent type={type} $isRed={isRed} disabled={disabled} onClick={onClick}>
+    <ButtonComponent
+      type={type}
+      $isRed={isRed}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {/* {children ? "" : buttonName} */}
 
       {/* Условный рендеринг */}

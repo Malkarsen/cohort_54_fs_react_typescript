@@ -1,4 +1,6 @@
-.homework_06_page_wrapper {
+import styled from "@emotion/styled";
+
+export const Homework06PageWrapper = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
@@ -6,17 +8,17 @@
   padding: 30px;
   background-color: rgb(23, 12, 82);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
+`;
 
-.cards_container {
+export const CardsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 50px;
-}
+`;
 
-.car_card {
+export const CarCard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -27,16 +29,18 @@
   background-color: rgb(212, 209, 232);
   box-shadow: 0 0 3px 1px white;
   font-size: 24px;
-}
 
-.car_card:hover {
-  background-color: white;
-  box-shadow: 0 0 5px 1px white;
-  cursor: pointer;
-}
+  &:hover {
+    background-color: white;
+    box-shadow: 0 0 5px 1px white;
+    cursor: pointer;
+  }
+`;
 
-#car_brand {
+export const CarInfo = styled.p``;
+
+export const CarBrand = styled.p`
   margin-bottom: 5px;
   font-weight: bold;
   color: rgb(24, 10, 70);
-}
+`;
