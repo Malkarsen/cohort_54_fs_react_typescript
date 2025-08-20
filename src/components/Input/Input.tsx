@@ -1,5 +1,5 @@
 import { type InputProps } from "./types";
-import { FormInputContainer, FormLabel, FormInput } from "./styles";
+import { FormInputContainer, FormLabel, FormInput, ErrorText } from "./styles";
 
 // С использованием деструктуризации
 function Input({
@@ -9,7 +9,7 @@ function Input({
   placeholder,
   label,
   disabled = false,
-  error = undefined
+  error = undefined,
 }: InputProps) {
   return (
     <FormInputContainer>
@@ -22,6 +22,7 @@ function Input({
         disabled={disabled}
         $error={error}
       />
+      {!!error && <ErrorText>{error}</ErrorText>}
     </FormInputContainer>
   );
 }

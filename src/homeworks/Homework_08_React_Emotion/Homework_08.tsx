@@ -1,16 +1,27 @@
-import {
-  Homework08PageWrapper,
-  InputContainer,
-  ButtonContainer,
-} from "./styles";
+import { useState } from "react";
+
+import { Homework08PageWrapper, ElementControl, Text } from "./styles";
+import { generateNumber } from "./data";
 
 import Input from "components/Input/Input";
 import Button from "components/Button/Button";
 
 function Homework_08() {
+  // Так делать нельзя, т.к это действие приведет к лишним вызовам функции generateNumber() 
+  // при каждом перерендере компонента Homework_08
+  // const number = generateNumber();
+  // const [generatedValue] = useState(number);
+  
+  // В таком варианте (когда мы передаем в useState в качестве значения по умолчанию callback, 
+  // она вызывается только 1 раз при первичном рендере, при повторном )
+  const [generatedValue] = useState(generateNumber);
+  // const [generatedValue, setGeneratedValue] = useState(generateNumber);
+
+  const [count, setCount] = useState<number>(0);
+
   return (
     <Homework08PageWrapper>
-      <InputContainer>
+      <ElementControl>
         <Input
           id="normal_input_id"
           name="normal_input_name"
@@ -30,13 +41,22 @@ function Homework_08() {
           placeholder="Error input"
           label="Error input"
           error="Some error"
+          disabled={true}
         ></Input>
-      </InputContainer>
-      <ButtonContainer>
+      </ElementControl>
+      <ElementControl>
         <Button buttonName="Normal button"></Button>
         <Button buttonName="Red button" isRed={true}></Button>
         <Button buttonName="Disabled button" disabled={true}></Button>
-      </ButtonContainer>
+      </ElementControl>
+      <ElementControl>
+        <Text>{count}</Text>
+        <Button
+          buttonName="Add"
+          onClick={() => setCount((prevValue) => prevValue + 1)}
+        ></Button>
+      </ElementControl>
+      <Text>Сгенерированное число: {generatedValue}</Text>
     </Homework08PageWrapper>
   );
 }

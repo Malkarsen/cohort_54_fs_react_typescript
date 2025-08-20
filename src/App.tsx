@@ -12,12 +12,11 @@ import GlobalStyles from "styles/GlobalStyles";
 // Consultations
 // import Consultation_03 from 'consultations/Consultation_03_map_jsx/Consultation_03';
 
-import { AppWrapper } from "./App.ts";
 import Homework_08 from "homeworks/Homework_08_React_Emotion/Homework_08";
 
 function App() {
   return (
-    <AppWrapper>
+    <>
       <GlobalStyles />
 
       {/* lessons */}
@@ -32,7 +31,7 @@ function App() {
 
       {/* Consultations */}
       {/* <Consultation_03 /> */}
-    </AppWrapper>
+    </>
   );
 }
 
