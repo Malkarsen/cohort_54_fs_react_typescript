@@ -1,3 +1,5 @@
+import { type ChangeEvent } from "react";
+
 export type ErrorType = undefined | string;
 
 export interface InputProps {
@@ -8,4 +10,6 @@ export interface InputProps {
   label: string;
   disabled?: boolean;
   error?: ErrorType;
+  value?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
