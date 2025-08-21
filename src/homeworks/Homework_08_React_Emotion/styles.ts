@@ -17,12 +17,12 @@ export const ElementControl = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 `;
 
 // Можно достилизовать компонент:
-// в данном примере мы берем все стили ElementControl в DellteButtonControl + добавляем ствои стили
+// в данном примере мы берем все стили ElementControl в DellteButtonControl + добавляем свои стили
 export const DeleteButtonControl = styled(ElementControl)`
   width: 400px;
 `;

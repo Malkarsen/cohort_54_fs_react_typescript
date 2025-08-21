@@ -7,13 +7,14 @@ import Input from "components/Input/Input";
 import Button from "components/Button/Button";
 
 function Homework_08() {
-  // Так делать нельзя, т.к это действие приведет к лишним вызовам функции generateNumber() 
+  // Так делать нельзя, т.к это действие приведет к лишним вызовам функции generateNumber()
   // при каждом перерендере компонента Homework_08
   // const number = generateNumber();
   // const [generatedValue] = useState(number);
-  
-  // В таком варианте (когда мы передаем в useState в качестве значения по умолчанию callback, 
-  // она вызывается только 1 раз при первичном рендере, при повторном )
+
+  // В таком варианте (когда мы передаем в useState в качестве значения по умолчанию callback,
+  // она вызывается только 1 раз при первичном рендере, при повторных рендерах, она не вызывается,
+  // вызвать ее можно только через setGeneratedValue)
   const [generatedValue] = useState(generateNumber);
   // const [generatedValue, setGeneratedValue] = useState(generateNumber);
 
@@ -41,7 +42,6 @@ function Homework_08() {
           placeholder="Error input"
           label="Error input"
           error="Some error"
-          disabled={true}
         ></Input>
       </ElementControl>
       <ElementControl>
