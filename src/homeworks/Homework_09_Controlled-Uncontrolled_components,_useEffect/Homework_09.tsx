@@ -1,57 +1,74 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
+import { RANDOM_JOKE_URL } from "./data";
 import Button from "components/Button/Button";
 import {
   Homework_09PageWrapper,
   JokeWrapper,
   JokeContainer,
-  Joke,
-  JokeSetup,
-  JokePunchline,
-  Error,
+  Text,
+  ErrorText,
 } from "./styles";
 
 function Homework_09() {
-  const JOKE_URL: string = "https://official-joke-api.appspot.com/random_joke";
-  
-  const [jokeSetup, setJokeSetup] = useState<string | undefined>(undefined);
-  const [jokePunchline, setJokePunchline] = useState<string | undefined>(
-    undefined
-  );
-  const [error, setError] = useState<string | undefined>(undefined);
+  const [joke, setJoke] = useState<undefined | string>(undefined);
+  const [error, setError] = useState<undefined | string>(undefined);
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   const getNewJoke = async () => {
-    const response = await fetch(JOKE_URL, { method: "GET" });
-    const result = await response.json();
-
-    if (response.ok) {
-      setJokeSetup(result.setup);
-      setJokePunchline(result.punchline);
-
-      setError(undefined);
-    } else {
-      setJokeSetup(undefined);
-      setJokePunchline(undefined);
-
-      setError("Some Network Error");
+    setJoke(undefined);
+    setError(undefined);
+    setIsDisabled(true);
+    ////////////////////////////////////////////////////////
+    // Пример запроса через библиотеку axios
+    try {
+      const response = await axios.get(RANDOM_JOKE_URL);
+      const data = response.data;
+      // тут пишем логику, когда нам пришла шутка(статус промиса fullfiled)
+      setJoke(`${data.setup} ${data.punchline}`);
+    } catch (error: any) {
+      // тут пишем логику, когда нам пришла ошибка(статус промиса rejected)
+      console.log(error);
+      setError(error.message);
+    } finally {
+      setIsDisabled(false);
     }
+    ///////////////////////////////////////////////////////////
+    // Пример запроса через метод fetch()
+    // const response = await fetch(RANDOM_JOKE_URL);
+    // // В данный момент в result будет леажть либо ошибка(promise венет статус rejected), либо успешно пришедшие данные(promise вернет статут fullfiled)
+    // const result = await response.json();
+    // if (response.ok) {
+    //   // тут пишем логику, когда нам пришла шутка(статус промиса fullfiled)
+    //   setIsDisabled(false);
+    //   setJoke(`${result.setup} ${result.punchline}`);
+    // } else {
+    //   // тут пишем логику, когда нам пришла ошибка(статус промиса rejected)
+    //   setIsDisabled(false);
+    //   setError("Some Network Error");
+    // }
   };
 
   useEffect(() => {
     getNewJoke();
-  }, [])
+  }, []);
 
   return (
     <Homework_09PageWrapper>
       <JokeWrapper>
         <JokeContainer>
-          <Joke>
-            <JokeSetup>{jokeSetup}</JokeSetup>
-            <JokePunchline>{jokePunchline}</JokePunchline>
-          </Joke>
-          <Error>{error}</Error>
+          <Text>
+            {!!joke && <Text>{joke}</Text>}
+            {!!error && <ErrorText>{error}</ErrorText>}
+          </Text>
+          <ErrorText>{error}</ErrorText>
         </JokeContainer>
-        <Button buttonName="Get new joke" onClick={getNewJoke}></Button>
+        <Button
+          buttonName="Get new joke"
+          onClick={getNewJoke}
+          disabled={isDisabled}
+        ></Button>
       </JokeWrapper>
     </Homework_09PageWrapper>
   );

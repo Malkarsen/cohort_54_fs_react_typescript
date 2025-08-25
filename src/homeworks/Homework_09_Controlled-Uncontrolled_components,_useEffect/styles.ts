@@ -26,11 +26,12 @@ export const JokeContainer = styled.div`
   font-size: 30px;
 `;
 
-export const Joke = styled.div`
+export const Text = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
 `;
-export const JokeSetup = styled.p``;
-export const JokePunchline = styled.p``;
-export const Error = styled.p``;
+
+export const ErrorText = styled(Text)`
+  color: red;
+`;
