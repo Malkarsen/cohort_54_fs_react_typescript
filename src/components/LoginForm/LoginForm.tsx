@@ -1,9 +1,13 @@
 import { type FormEvent, type ChangeEvent, useState } from "react";
+// ШАГ 1: импортируем хук useFormik из библиотеки formik
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
 
 import { LoginFormContainer, Title, InputsContainer } from "./styles.ts";
+import { LOGIN_FORM_VALUES } from "./types.ts";
 
 function LoginForm() {
   // Пример работы с контроллируемыми элементами на странице
@@ -14,45 +18,94 @@ function LoginForm() {
   //     setInputValue(event.target.value);
   //   };
 
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  // const [email, setEmail] = useState<string>("");
+  // const [password, setPassword] = useState<string>("");
 
-  const changeEmail = (event: ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
+  // const changeEmail = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setEmail(event.target.value);
+  // };
 
-  const changePassword = (event: ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+  // const changePassword = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setPassword(event.target.value);
+  // };
 
-  const login = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Login started");
-    console.log("Email: ", email);
-    console.log("Password: ", password);
-  };
+  // const login = (event: FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   console.log("Login started");
+  //   console.log("Email: ", email);
+  //   console.log("Password: ", password);
+  // };
+
+  //////////////////////////////////////////////////////////////////////
+  // Вадидация с помощью yup
+  const validationSchema = Yup.object().shape({
+    [LOGIN_FORM_VALUES.EMAIL]: Yup.string()
+      .required("Email field is required")
+      .email("This filed should be im email format"),
+    [LOGIN_FORM_VALUES.PASSWORD]: Yup.string()
+      .required("Password field is required")
+      .min(5, "Password field should contain minimum 5 characters")
+      .max(20, "Password field should contain maximum 20 characters"),
+  });
+  //////////////////////////////////////////////////////////////////////
+  // useFormik  возвращает объект, в котором прописаны необходимые данные о форме и вспомогательные функции для работы с формой
+  // useFormik принимает в качестве аргумента обьект - он является обязательным
+  // обьект который мы передаем useFormik нужен для настройки обьекта, который возвращает хук useFormik
+  // обьект, который мы передаем useFomik имеет 2 обязательных ключа:
+  // 1. initialValues - принимат в качестве значения обьект:
+  // - в качестве ключа у нас выступает значение атрубута name в элементах формы
+  // - в качестве значения ключа мы прописывает значение по умолчанию, которое должно быть в элементе формы
+  // 2. onSubmit - это функция, которая вызывается на событие submit(при клике на кнопку с type="submit")
+  const formik = useFormik({
+    initialValues: {
+      [LOGIN_FORM_VALUES.EMAIL]: "",
+      [LOGIN_FORM_VALUES.PASSWORD]: "",
+    },
+    validationSchema: validationSchema,
+    validateOnMount: false, // в момент зарождения элемента (появления)
+    validateOnChange: false,
+    onSubmit: (values, helpers) => {
+      console.log("Submit form formik  works!");
+      // values - это обьект, ключи которого явлются значение атприбута name у элементов формы,
+      // а значение ключа - это то что ввел пользователь в наших элементах формы
+      console.log(values);
+      // Вспомогательные функции, которые мы можем использовать во время события submit
+      // например helpers.resetForm() -  очищает форму от значений(т.е делает значения формы по-умолчанию)
+      console.log(helpers);
+      // helpers.resetForm();
+    },
+  });
+
+  console.log(formik);
 
   return (
-    <LoginFormContainer onSubmit={login}>
+    // formik.handleSubmit - мы прописывает для того, чтобы, когда мы нажали на кнопку c type="submit",
+    // у нас вызвалась функция, которую мы прописали в onSubmit
+    <LoginFormContainer onSubmit={formik.handleSubmit}>
       <Title>Login form</Title>
       <InputsContainer>
         <Input
           id="email-id"
-          name="email"
-          type="email"
+          name={LOGIN_FORM_VALUES.EMAIL}
           placeholder="Enter your email"
           label="Email"
-          value={email}
-          onChange={changeEmail}
+          // formik.values.email - мы прописываем, чтобы элемент формы получил значение
+          // которое пользователь вводит с клавиатуры
+          value={formik.values[LOGIN_FORM_VALUES.EMAIL]}
+          // formik.handleChange - помогает контролировать ввод пользователя данных с клавиатуры
+          // и когда пользователь что-то вводит, то formik.handleChange записывает данные в formik.values.email
+          onChange={formik.handleChange}
+          error={formik.errors[LOGIN_FORM_VALUES.EMAIL]}
         />
         <Input
           id="password-id"
-          name="password"
+          name={LOGIN_FORM_VALUES.PASSWORD}
           type="password"
           placeholder="Enter your password"
           label="Password"
-          value={password}
-          onChange={changePassword}
+          value={formik.values[LOGIN_FORM_VALUES.PASSWORD]}
+          onChange={formik.handleChange}
+          error={formik.errors[LOGIN_FORM_VALUES.PASSWORD]}
         />
       </InputsContainer>
       {/* <input value={inputValue} onChange={changeInputValue}></input> */}
