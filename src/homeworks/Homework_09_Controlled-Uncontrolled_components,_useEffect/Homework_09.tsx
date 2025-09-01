@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios, {AxiosError} from "axios";
 
 import { RANDOM_JOKE_URL } from "./data";
 import Button from "components/Button/Button";
