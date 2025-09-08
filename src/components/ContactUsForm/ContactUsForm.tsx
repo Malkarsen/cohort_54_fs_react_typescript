@@ -19,8 +19,8 @@ function ContactUsForm() {
       .max(20, "Phone field should contain maximum 20 characters"),
     [CONTACT_US_FORM_VALUES.EMAIL]: Yup.string()
       .email("This filed should be im email format")
-      .min(6, "Full name field should contain minimum 6 characters")
-      .max(60, "Full name field should contain maximum 60 characters"),
+      .min(6, "Email field should contain minimum 6 characters")
+      .max(60, "Email field should contain maximum 60 characters"),
   });
 
   const formik = useFormik({
@@ -45,7 +45,7 @@ function ContactUsForm() {
         label="Full name*"
         value={formik.values[CONTACT_US_FORM_VALUES.FULLNAME]}
         onChange={formik.handleChange}
-        error=""
+        error={formik.errors[CONTACT_US_FORM_VALUES.FULLNAME]}
       />
       <Input
         id="phone_id"
@@ -54,7 +54,7 @@ function ContactUsForm() {
         label="Phone*"
         value={formik.values[CONTACT_US_FORM_VALUES.PHONE]}
         onChange={formik.handleChange}
-        error=""
+        error={formik.errors[CONTACT_US_FORM_VALUES.PHONE]}
       />
       <Input
         id="email_id"
@@ -63,7 +63,7 @@ function ContactUsForm() {
         label="Email"
         value={formik.values[CONTACT_US_FORM_VALUES.EMAIL]}
         onChange={formik.handleChange}
-        error=""
+        error={formik.errors[CONTACT_US_FORM_VALUES.EMAIL]}
       />
       <Button buttonName="SEND REQUEST" type="submit" />
     </FormWrapper>
