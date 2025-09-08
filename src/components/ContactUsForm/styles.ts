@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const LoginFormContainer = styled.form`
+export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -8,19 +8,12 @@ export const LoginFormContainer = styled.form`
   border-radius: 8px;
   padding: 50px;
   width: 600px;
-  min-height: 450px;
-  max-height: fit-content;
+  height: fit-content;
   background-color: white;
 `;
 
-export const Title = styled.p`
+export const Title = styled.div`
   font-size: 30px;
   font-weight: bold;
   color: rgba(26, 11, 92, 1);
-`;
-
-export const InputsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 `;
