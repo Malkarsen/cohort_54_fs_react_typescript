@@ -1,4 +1,4 @@
-import ClientPage from "components/ClientPage/ClientPage";
+import ClientPage from "pages/EmployeeApp/Clients/components/ClientPage/ClientPage";
 
 import { PageWrapper } from "./styles";
 

@@ -10,6 +10,7 @@ import Clients from "pages/EmployeeApp/Clients/Clients";
 import Facebook from "pages/EmployeeApp/Clients/Facebook/Facebook";
 import Instagram from "pages/EmployeeApp/Clients/Instagram/Instagram";
 import YouTube from "pages/EmployeeApp/Clients/YouTube/YouTube";
+import { ROUTES } from "constants/routes";
 
 // Components
 import Layout from "components/Layout/Layout";
@@ -40,15 +41,15 @@ function App() {
 
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/facebook" element={<Facebook />} />
-          <Route path="/instagram" element={<Instagram />} />
-          <Route path="/youtube" element={<YouTube />} />
-          <Route path="*" element="Page Not Found" />
+          <Route path={ROUTES.HOME} element={<Home />} />
+          <Route path={ROUTES.CONTACTUS} element={<ContactUs />} />
+          <Route path={ROUTES.ABOUT} element={<About />} />
+          <Route path={ROUTES.LOGIN} element={<LogIn />} />
+          <Route path={ROUTES.CLIENTS} element={<Clients />} />
+          <Route path={ROUTES.FACEBOOK} element={<Facebook />} />
+          <Route path={ROUTES.INSTAGRAM} element={<Instagram />} />
+          <Route path={ROUTES.YOUTUBE} element={<YouTube />} />
+          <Route path={ROUTES.NOT_FOUND} element="Page Not Found" />
         </Routes>
       </Layout>
 

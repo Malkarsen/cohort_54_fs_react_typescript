@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { v4 } from "uuid";
+
+import { NAVIGATION_MENU_ROUTES } from "constants/routes";
 
 import {
   LayoutWrapper,
@@ -12,6 +15,7 @@ import {
   FooterLogo,
   FooterNavigation,
   FooterLink,
+  navlinkProps,
 } from "./styles";
 
 import { type LayoutProps } from "./types";
@@ -23,12 +27,31 @@ function Layout({ children }: LayoutProps) {
     navigate("/");
   };
 
-  const getStyle = ({ isActive }: { isActive: boolean }) => ({
-    fontWeight: isActive ? "bold" : "normal",
-    textDecoration: isActive ? "underline" : "none",
-    padding: "10px",
-    borderRadius: "15px",
-    backgroundColor: isActive ? "rgba(148, 155, 201, 0.9)" : "transparent",
+  const routesKey = Object.keys(NAVIGATION_MENU_ROUTES);
+  const headerLinks = routesKey.map((route) => {
+    return (
+      <HeaderLink
+        style={({ isActive }: { isActive: boolean }) => navlinkProps(isActive)}
+        to={
+          NAVIGATION_MENU_ROUTES[route as keyof typeof NAVIGATION_MENU_ROUTES]
+        }
+      >
+        {route}
+      </HeaderLink>
+    );
+  });
+
+  const footerLinks = routesKey.map((route) => {
+    return (
+      <FooterLink
+        key={v4()}
+        to={
+          NAVIGATION_MENU_ROUTES[route as keyof typeof NAVIGATION_MENU_ROUTES]
+        }
+      >
+        {route}
+      </FooterLink>
+    );
   });
 
   return (
@@ -40,23 +63,7 @@ function Layout({ children }: LayoutProps) {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOGDYH2tzlcwZSDpjg0qRGgEHAxVhsKHFUg&s"
           />
         </Logo>
-        <NavigationContainer>
-          <HeaderLink style={getStyle} to="/">
-            Home
-          </HeaderLink>
-          <HeaderLink style={getStyle} to="/contactUs">
-            Contact Us
-          </HeaderLink>
-          <HeaderLink style={getStyle} to="/about">
-            About
-          </HeaderLink>
-          <HeaderLink style={getStyle} to="/login">
-            Login
-          </HeaderLink>
-          <HeaderLink style={getStyle} to="/clients">
-            Clients
-          </HeaderLink>
-        </NavigationContainer>
+        <NavigationContainer>{headerLinks}</NavigationContainer>
       </Header>
       <Main>{children}</Main>
       <Footer>
@@ -66,13 +73,7 @@ function Layout({ children }: LayoutProps) {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOGDYH2tzlcwZSDpjg0qRGgEHAxVhsKHFUg&s"
           />
         </FooterLogo>
-        <FooterNavigation>
-          <FooterLink to="/">Home</FooterLink>
-          <FooterLink to="/contactUs">Contact Us</FooterLink>
-          <FooterLink to="/about">About</FooterLink>
-          <FooterLink to="/login">Login</FooterLink>
-          <FooterLink to="/clients">Clients</FooterLink>
-        </FooterNavigation>
+        <FooterNavigation>{footerLinks}</FooterNavigation>
       </Footer>
     </LayoutWrapper>
   );
