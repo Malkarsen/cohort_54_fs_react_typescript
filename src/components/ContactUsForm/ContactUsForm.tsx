@@ -7,7 +7,7 @@ import Button from "components/Button/Button";
 import { FormWrapper, Title } from "./styles";
 import { CONTACT_US_FORM_VALUES } from "./types";
 
-function ContactUs() {
+function ContactUsForm() {
   const validationSchema = Yup.object().shape({
     [CONTACT_US_FORM_VALUES.FULLNAME]: Yup.string()
       .required("Full name field is required")
@@ -70,4 +70,4 @@ function ContactUs() {
   );
 }
 
-export default ContactUs;
+export default ContactUsForm;

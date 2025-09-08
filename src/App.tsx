@@ -1,4 +1,14 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyles from "styles/GlobalStyles";
+
+// Pages
+import Home from "pages/EmployeeApp/Home/Home";
+import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
+import LogIn from "pages/EmployeeApp/LogIn/LogIn";
+import About from "pages/EmployeeApp/About/About";
+
+// Components
+import Layout from "components/Layout/Layout";
 
 // Lessons
 // import Lesson_06 from 'lessons/Lesson_06_React_Typescript/Lesson_06';
@@ -14,16 +24,25 @@ import GlobalStyles from "styles/GlobalStyles";
 // import Homework_07 from "homeworks/Homework_07_Typescript, Parent_Child components/Homework_07";
 // import Homework_08 from "homeworks/Homework_08_React_Emotion/Homework_08";
 // import Homework_09 from "homeworks/Homework_09_Controlled-Uncontrolled_components,_useEffect/Homework_09";
-import Homework_11 from "homeworks/Homework_11_React_Formik,_yup/Homework_11";
+// import Homework_11 from "homeworks/Homework_11_React_Formik,_yup/Homework_11";
 
 // Consultations
 // import Consultation_03 from 'consultations/Consultation_03_map_jsx/Consultation_03';
 
-
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyles />
+
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="*" element="Page Not Found" />
+        </Routes>
+      </Layout>
 
       {/* lessons */}
       {/* <Lesson_06 /> */}
@@ -39,11 +58,11 @@ function App() {
       {/* <Homework_07 /> */}
       {/* <Homework_08 /> */}
       {/* <Homework_09 /> */}
-      <Homework_11 />
+      {/* <Homework_11 /> */}
 
       {/* Consultations */}
       {/* <Consultation_03 /> */}
-    </>
+    </BrowserRouter>
   );
 }
 
