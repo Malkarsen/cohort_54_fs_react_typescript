@@ -6,6 +6,10 @@ import Home from "pages/EmployeeApp/Home/Home";
 import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
 import LogIn from "pages/EmployeeApp/LogIn/LogIn";
 import About from "pages/EmployeeApp/About/About";
+import Clients from "pages/EmployeeApp/Clients/Clients";
+import Facebook from "pages/EmployeeApp/Clients/Facebook/Facebook";
+import Instagram from "pages/EmployeeApp/Clients/Instagram/Instagram";
+import YouTube from "pages/EmployeeApp/Clients/YouTube/YouTube";
 
 // Components
 import Layout from "components/Layout/Layout";
@@ -40,6 +44,10 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/facebook" element={<Facebook />} />
+          <Route path="/instagram" element={<Instagram />} />
+          <Route path="/youtube" element={<YouTube />} />
           <Route path="*" element="Page Not Found" />
         </Routes>
       </Layout>

@@ -53,6 +53,9 @@ function Layout({ children }: LayoutProps) {
           <HeaderLink style={getStyle} to="/login">
             Login
           </HeaderLink>
+          <HeaderLink style={getStyle} to="/clients">
+            Clients
+          </HeaderLink>
         </NavigationContainer>
       </Header>
       <Main>{children}</Main>
@@ -68,6 +71,7 @@ function Layout({ children }: LayoutProps) {
           <FooterLink to="/contactUs">Contact Us</FooterLink>
           <FooterLink to="/about">About</FooterLink>
           <FooterLink to="/login">Login</FooterLink>
+          <FooterLink to="/clients">Clients</FooterLink>
         </FooterNavigation>
       </Footer>
     </LayoutWrapper>
