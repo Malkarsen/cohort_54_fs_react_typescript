@@ -23,7 +23,7 @@ import GlobalStyles from "styles/GlobalStyles";
 // import Lesson_10_my from "lessons/Lesson_10_React_useEffect Practise/my/Lesson_10";
 // import Lesson_10_group from "lessons/Lesson_10_React_useEffect Practise/group/Lesson_10";
 // import Lesson_11 from "lessons/Lesson_11_React_Formik,_yup/Lesson_11";
-import Lesson_13 from "lessons/Lesson_13/Lesson_13";
+import Lesson_13 from "lessons/Lesson_13_React_useContext/Lesson_13";
 
 // Homeworks
 // import Homework_06 from 'homeworks/Homework_06_React_Typescript/Homework_06';

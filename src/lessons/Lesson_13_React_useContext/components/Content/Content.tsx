@@ -2,7 +2,7 @@
 import { useContext } from "react";
 
 import Button from "components/Button/Button";
-import { MainContext } from "lessons/Lesson_13/components/Main/Main";
+import { MainContext } from "lessons/Lesson_13_React_useContext/components/Main/Main";
 
 import { ContentInfo, ContentTitle, ContentWrapper } from "./styles";
 
