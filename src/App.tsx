@@ -2,18 +2,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import GlobalStyles from "styles/GlobalStyles";
 
 // Pages
-import Home from "pages/EmployeeApp/Home/Home";
-import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
-import LogIn from "pages/EmployeeApp/LogIn/LogIn";
-import About from "pages/EmployeeApp/About/About";
-import Clients from "pages/EmployeeApp/Clients/Clients";
-import Facebook from "pages/EmployeeApp/Clients/Facebook/Facebook";
-import Instagram from "pages/EmployeeApp/Clients/Instagram/Instagram";
-import YouTube from "pages/EmployeeApp/Clients/YouTube/YouTube";
-import { ROUTES } from "constants/routes";
+// import Home from "pages/EmployeeApp/Home/Home";
+// import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
+// import LogIn from "pages/EmployeeApp/LogIn/LogIn";
+// import About from "pages/EmployeeApp/About/About";
+// import Clients from "pages/EmployeeApp/Clients/Clients";
+// import Facebook from "pages/EmployeeApp/Clients/Facebook/Facebook";
+// import Instagram from "pages/EmployeeApp/Clients/Instagram/Instagram";
+// import YouTube from "pages/EmployeeApp/Clients/YouTube/YouTube";
+// import { ROUTES } from "constants/routes";
 
 // Components
-import Layout from "components/Layout/Layout";
+// import Layout from "components/Layout/Layout";
 
 // Lessons
 // import Lesson_06 from 'lessons/Lesson_06_React_Typescript/Lesson_06';
@@ -23,6 +23,7 @@ import Layout from "components/Layout/Layout";
 // import Lesson_10_my from "lessons/Lesson_10_React_useEffect Practise/my/Lesson_10";
 // import Lesson_10_group from "lessons/Lesson_10_React_useEffect Practise/group/Lesson_10";
 // import Lesson_11 from "lessons/Lesson_11_React_Formik,_yup/Lesson_11";
+import Lesson_13 from "lessons/Lesson_13/Lesson_13";
 
 // Homeworks
 // import Homework_06 from 'homeworks/Homework_06_React_Typescript/Homework_06';
@@ -39,7 +40,7 @@ function App() {
     <BrowserRouter>
       <GlobalStyles />
 
-      <Layout>
+      {/* <Layout>
         <Routes>
           <Route path={ROUTES.HOME} element={<Home />} />
           <Route path={ROUTES.CONTACTUS} element={<ContactUs />} />
@@ -51,7 +52,7 @@ function App() {
           <Route path={ROUTES.YOUTUBE} element={<YouTube />} />
           <Route path={ROUTES.NOT_FOUND} element="Page Not Found" />
         </Routes>
-      </Layout>
+      </Layout> */}
 
       {/* lessons */}
       {/* <Lesson_06 /> */}
@@ -61,6 +62,7 @@ function App() {
       {/* <Lesson_10_my /> */}
       {/* <Lesson_10_group /> */}
       {/* <Lesson_11 /> */}
+      <Lesson_13 />
 
       {/* Homeworks */}
       {/* <Homework_06 /> */}
