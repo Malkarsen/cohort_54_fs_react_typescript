@@ -2,12 +2,13 @@
 import { useContext } from "react";
 
 import Button from "components/Button/Button";
+// Шаг 5: Импортируем Context
 import { MainContext } from "lessons/Lesson_13_React_useContext/components/Main/Main";
 
 import { ContentInfo, ContentTitle, ContentWrapper } from "./styles";
 
 function Content() {
-  // Шаг 5: Получить доступ к данным, хранящимся в контексте
+  // Шаг 6: Получить доступ к данным, хранящимся в контексте
   const { userData, setUserData } = useContext(MainContext);
   console.log(userData);
 
