@@ -4,7 +4,7 @@ import { PageWrapper } from "./styles";
 
 function Homework_13() {
   return <PageWrapper>
-    <BlogManagement></BlogManagement>
+    <BlogManagement />
   </PageWrapper>;
 }
 

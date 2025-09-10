@@ -31,7 +31,6 @@ function BlogManagement() {
     validateOnChange: false,
     onSubmit: (values, helpers) => {
       setMessage(values[BLOG_MANAGEMENT_FORM_VALUES.MESSAGE]);
-      console.log(values[BLOG_MANAGEMENT_FORM_VALUES.MESSAGE]);
       helpers.resetForm();
     },
   });

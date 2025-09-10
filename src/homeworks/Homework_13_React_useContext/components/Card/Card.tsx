@@ -6,7 +6,7 @@ function Card() {
   return (
     <CardWrapper>
       <FullNameTitle>Arina Malko</FullNameTitle>
-      <Message></Message>
+      <Message />
     </CardWrapper>
   );
 }
