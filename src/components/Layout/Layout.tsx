@@ -31,6 +31,7 @@ function Layout({ children }: LayoutProps) {
   const headerLinks = routesKey.map((route) => {
     return (
       <HeaderLink
+        key={v4()}
         style={({ isActive }: { isActive: boolean }) => navlinkProps(isActive)}
         to={
           NAVIGATION_MENU_ROUTES[route as keyof typeof NAVIGATION_MENU_ROUTES]
