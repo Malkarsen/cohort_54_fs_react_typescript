@@ -23,7 +23,7 @@ import GlobalStyles from "styles/GlobalStyles";
 // import Lesson_10_my from "lessons/Lesson_10_React_useEffect Practise/my/Lesson_10";
 // import Lesson_10_group from "lessons/Lesson_10_React_useEffect Practise/group/Lesson_10";
 // import Lesson_11 from "lessons/Lesson_11_React_Formik,_yup/Lesson_11";
-import Lesson_13 from "lessons/Lesson_13/Lesson_13";
+// import Lesson_13 from "lessons/Lesson_13_React_useContext/Lesson_13";
 
 // Homeworks
 // import Homework_06 from 'homeworks/Homework_06_React_Typescript/Homework_06';
@@ -31,6 +31,7 @@ import Lesson_13 from "lessons/Lesson_13/Lesson_13";
 // import Homework_08 from "homeworks/Homework_08_React_Emotion/Homework_08";
 // import Homework_09 from "homeworks/Homework_09_Controlled-Uncontrolled_components,_useEffect/Homework_09";
 // import Homework_11 from "homeworks/Homework_11_React_Formik,_yup/Homework_11";
+import Homework_13 from "homeworks/Homework_13_React_useContext/Homework_13";
 
 // Consultations
 // import Consultation_03 from 'consultations/Consultation_03_map_jsx/Consultation_03';
@@ -62,7 +63,7 @@ function App() {
       {/* <Lesson_10_my /> */}
       {/* <Lesson_10_group /> */}
       {/* <Lesson_11 /> */}
-      <Lesson_13 />
+      {/* <Lesson_13 /> */}
 
       {/* Homeworks */}
       {/* <Homework_06 /> */}
@@ -70,6 +71,7 @@ function App() {
       {/* <Homework_08 /> */}
       {/* <Homework_09 /> */}
       {/* <Homework_11 /> */}
+      <Homework_13 />
 
       {/* Consultations */}
       {/* <Consultation_03 /> */}

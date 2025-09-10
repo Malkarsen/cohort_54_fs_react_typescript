@@ -1,4 +1,4 @@
-import Content from "lessons/Lesson_13/components/Content/Content";
+import Content from "lessons/Lesson_13_React_useContext/components/Content/Content";
 
 import { SectionTitle, SectionWrapper } from "./styles";
 

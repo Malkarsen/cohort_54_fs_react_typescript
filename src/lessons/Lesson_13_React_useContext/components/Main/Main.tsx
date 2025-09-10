@@ -2,7 +2,7 @@
 import { useState, createContext } from "react";
 import Button from "components/Button/Button";
 
-import Section from "lessons/Lesson_13/components/Section/Section";
+import Section from "lessons/Lesson_13_React_useContext/components/Section/Section";
 
 import { MainTitle, MainWrapper } from "./styles";
 import { type UserData, type UserDataContext } from "./types";
