@@ -1,24 +1,17 @@
+import { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { createContext, useState } from "react";
 
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
 
 import { FormContainer, InputsContainer } from "./styles.ts";
-import { type EmployeeData, CREATE_EMPLOYEE_FORM_VALUES } from "./types.ts";
-
-export const CreateEmployeeContext = createContext<EmployeeData | undefined>({
-  name: undefined,
-  surname: undefined,
-  age: undefined,
-  job: undefined,
-});
+import { CREATE_EMPLOYEE_FORM_VALUES } from "./types.ts";
+import type { EmployeeData } from "../Layout/types.ts";
+import { LayoutContext } from "../Layout/Layout.tsx";
 
 function CreateEmployee() {
-  const [employeeData, setEmployeeData] = useState<EmployeeData | undefined>(
-    undefined
-  );
+  const { employeeData, setEmployeeData } = useContext(LayoutContext);
 
   const validationSchema = Yup.object().shape({
     [CREATE_EMPLOYEE_FORM_VALUES.NAME]: Yup.string()
@@ -56,54 +49,57 @@ function CreateEmployee() {
         job: values[CREATE_EMPLOYEE_FORM_VALUES.JOB],
       };
       setEmployeeData(employee);
-      //   helpers.resetForm();
+      helpers.resetForm();
+      alert(
+        `User ${values[CREATE_EMPLOYEE_FORM_VALUES.NAME]} ${
+          values[CREATE_EMPLOYEE_FORM_VALUES.SURNAME]
+        } successfully created`
+      );
     },
   });
 
   return (
-    <CreateEmployeeContext.Provider value={employeeData}>
-      <FormContainer onSubmit={formik.handleSubmit}>
-        <InputsContainer>
-          <Input
-            id="name-id"
-            name={CREATE_EMPLOYEE_FORM_VALUES.NAME}
-            placeholder="John"
-            label="Name*"
-            value={formik.values[CREATE_EMPLOYEE_FORM_VALUES.NAME]}
-            onChange={formik.handleChange}
-            error={formik.errors[CREATE_EMPLOYEE_FORM_VALUES.NAME]}
-          />
-          <Input
-            id="surname-id"
-            name={CREATE_EMPLOYEE_FORM_VALUES.SURNAME}
-            placeholder="Johnson"
-            label="Surname*"
-            value={formik.values[CREATE_EMPLOYEE_FORM_VALUES.SURNAME]}
-            onChange={formik.handleChange}
-            error={formik.errors[CREATE_EMPLOYEE_FORM_VALUES.SURNAME]}
-          />
-          <Input
-            id="age-id"
-            name={CREATE_EMPLOYEE_FORM_VALUES.AGE}
-            placeholder="25"
-            label="Age*"
-            value={formik.values[CREATE_EMPLOYEE_FORM_VALUES.AGE]}
-            onChange={formik.handleChange}
-            error={formik.errors[CREATE_EMPLOYEE_FORM_VALUES.AGE]}
-          />
-          <Input
-            id="job-id"
-            name={CREATE_EMPLOYEE_FORM_VALUES.JOB}
-            placeholder="QA"
-            label="Job Position"
-            value={formik.values[CREATE_EMPLOYEE_FORM_VALUES.JOB]}
-            onChange={formik.handleChange}
-            error={formik.errors[CREATE_EMPLOYEE_FORM_VALUES.JOB]}
-          />
-        </InputsContainer>
-        <Button buttonName="Create" type="submit" />
-      </FormContainer>
-    </CreateEmployeeContext.Provider>
+    <FormContainer onSubmit={formik.handleSubmit}>
+      <InputsContainer>
+        <Input
+          id="name-id"
+          name={CREATE_EMPLOYEE_FORM_VALUES.NAME}
+          placeholder="John"
+          label="Name*"
+          value={formik.values[CREATE_EMPLOYEE_FORM_VALUES.NAME]}
+          onChange={formik.handleChange}
+          error={formik.errors[CREATE_EMPLOYEE_FORM_VALUES.NAME]}
+        />
+        <Input
+          id="surname-id"
+          name={CREATE_EMPLOYEE_FORM_VALUES.SURNAME}
+          placeholder="Johnson"
+          label="Surname*"
+          value={formik.values[CREATE_EMPLOYEE_FORM_VALUES.SURNAME]}
+          onChange={formik.handleChange}
+          error={formik.errors[CREATE_EMPLOYEE_FORM_VALUES.SURNAME]}
+        />
+        <Input
+          id="age-id"
+          name={CREATE_EMPLOYEE_FORM_VALUES.AGE}
+          placeholder="25"
+          label="Age*"
+          value={formik.values[CREATE_EMPLOYEE_FORM_VALUES.AGE]}
+          onChange={formik.handleChange}
+          error={formik.errors[CREATE_EMPLOYEE_FORM_VALUES.AGE]}
+        />
+        <Input
+          id="job-id"
+          name={CREATE_EMPLOYEE_FORM_VALUES.JOB}
+          placeholder="QA"
+          label="Job Position"
+          value={formik.values[CREATE_EMPLOYEE_FORM_VALUES.JOB]}
+          onChange={formik.handleChange}
+          error={formik.errors[CREATE_EMPLOYEE_FORM_VALUES.JOB]}
+        />
+      </InputsContainer>
+      <Button buttonName="Create" type="submit" />
+    </FormContainer>
   );
 }
 

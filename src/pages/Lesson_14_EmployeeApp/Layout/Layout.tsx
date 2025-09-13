@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { createContext, useState } from "react";
 import { v4 } from "uuid";
 
 import { NAVIGATION_MENU_ROUTES } from "../constants/routes";
@@ -15,9 +16,22 @@ import {
   navlinkProps,
 } from "./styles";
 
-import { type LayoutProps } from "./types";
+import {
+  type LayoutProps,
+  type EmployeeData,
+  type EmployeeDataContext,
+} from "./types";
+
+export const LayoutContext = createContext<EmployeeDataContext>({
+  employeeData: undefined,
+  setEmployeeData: () => {},
+});
 
 function Layout({ children }: LayoutProps) {
+  const [employeeData, setEmployeeData] = useState<EmployeeData | undefined>(
+    undefined
+  );
+
   const navigate = useNavigate();
 
   const goToMainPage = () => {
@@ -40,15 +54,19 @@ function Layout({ children }: LayoutProps) {
   });
 
   return (
-    <LayoutWrapper>
-      <Header>
-        <Logo onClick={goToMainPage}>
-          <LogoImg alt="App Logo" src={AppLogoImg} />
-        </Logo>
-        <NavigationContainer>{headerLinks}</NavigationContainer>
-      </Header>
-      <Main>{children}</Main>
-    </LayoutWrapper>
+    <LayoutContext.Provider
+      value={{ employeeData, setEmployeeData }}
+    >
+      <LayoutWrapper>
+        <Header>
+          <Logo onClick={goToMainPage}>
+            <LogoImg alt="App Logo" src={AppLogoImg} />
+          </Logo>
+          <NavigationContainer>{headerLinks}</NavigationContainer>
+        </Header>
+        <Main>{children}</Main>
+      </LayoutWrapper>
+    </LayoutContext.Provider>
   );
 }
 

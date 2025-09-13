@@ -6,28 +6,28 @@ import {
   CardInfoTitle,
   CardInfoContent,
 } from "./styles";
-import { CreateEmployeeContext } from "../CreateEmployee/CreateEmployee";
+import { LayoutContext } from "../Layout/Layout";
 
 function Employees() {
-  const employee = useContext(CreateEmployeeContext);
+  const { employeeData, setEmployeeData } = useContext(LayoutContext);
 
   return (
     <CardWrapper>
       <CardInfo>
         <CardInfoTitle>Name</CardInfoTitle>
-        <CardInfoContent>{employee?.name}</CardInfoContent>
+        <CardInfoContent>{employeeData?.name}</CardInfoContent>
       </CardInfo>
       <CardInfo>
         <CardInfoTitle>Surname</CardInfoTitle>
-        <CardInfoContent>{employee?.surname}</CardInfoContent>
+        <CardInfoContent>{employeeData?.surname}</CardInfoContent>
       </CardInfo>
       <CardInfo>
         <CardInfoTitle>Age</CardInfoTitle>
-        <CardInfoContent>{employee?.age}</CardInfoContent>
+        <CardInfoContent>{employeeData?.age}</CardInfoContent>
       </CardInfo>
       <CardInfo>
         <CardInfoTitle>Job Position</CardInfoTitle>
-        <CardInfoContent>{employee?.job}</CardInfoContent>
+        <CardInfoContent>{employeeData?.job}</CardInfoContent>
       </CardInfo>
     </CardWrapper>
   );
