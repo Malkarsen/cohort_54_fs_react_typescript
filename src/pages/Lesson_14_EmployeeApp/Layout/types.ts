@@ -12,6 +12,6 @@ export interface EmployeeData {
 }
 
 export interface EmployeeDataContext {
-  employeeData: EmployeeData | undefined;
-  setEmployeeData: Dispatch<SetStateAction<EmployeeData | undefined>>;
+  employeeData: EmployeeData[];
+  setEmployeeData: Dispatch<SetStateAction<EmployeeData[]>>;
 }

@@ -48,7 +48,9 @@ function CreateEmployee() {
         age: values[CREATE_EMPLOYEE_FORM_VALUES.AGE],
         job: values[CREATE_EMPLOYEE_FORM_VALUES.JOB],
       };
-      setEmployeeData(employee);
+      setEmployeeData((prevValue) => {
+        return [...prevValue, employee]}
+      );
       helpers.resetForm();
       alert(
         `User ${values[CREATE_EMPLOYEE_FORM_VALUES.NAME]} ${

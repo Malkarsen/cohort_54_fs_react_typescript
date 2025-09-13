@@ -23,14 +23,12 @@ import {
 } from "./types";
 
 export const LayoutContext = createContext<EmployeeDataContext>({
-  employeeData: undefined,
+  employeeData: [],
   setEmployeeData: () => {},
 });
 
 function Layout({ children }: LayoutProps) {
-  const [employeeData, setEmployeeData] = useState<EmployeeData | undefined>(
-    undefined
-  );
+  const [employeeData, setEmployeeData] = useState<EmployeeData[]>([]);
 
   const navigate = useNavigate();
 
@@ -54,9 +52,7 @@ function Layout({ children }: LayoutProps) {
   });
 
   return (
-    <LayoutContext.Provider
-      value={{ employeeData, setEmployeeData }}
-    >
+    <LayoutContext.Provider value={{ employeeData, setEmployeeData }}>
       <LayoutWrapper>
         <Header>
           <Logo onClick={goToMainPage}>

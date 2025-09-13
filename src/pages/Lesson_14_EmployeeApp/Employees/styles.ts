@@ -1,5 +1,13 @@
 import styled from "@emotion/styled";
 
+export const Cards = styled.div`
+  display: flex;
+  gap: 65px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
