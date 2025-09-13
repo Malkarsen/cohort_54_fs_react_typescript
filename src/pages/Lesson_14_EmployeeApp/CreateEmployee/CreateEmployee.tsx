@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { v4 } from "uuid";
 
 import Button from "components/Button/Button";
 import Input from "components/Input/Input";
@@ -11,7 +12,7 @@ import type { EmployeeData } from "../Layout/types.ts";
 import { LayoutContext } from "../Layout/Layout.tsx";
 
 function CreateEmployee() {
-  const { employeeData, setEmployeeData } = useContext(LayoutContext);
+  const { setEmployeeData } = useContext(LayoutContext);
 
   const validationSchema = Yup.object().shape({
     [CREATE_EMPLOYEE_FORM_VALUES.NAME]: Yup.string()
@@ -43,14 +44,15 @@ function CreateEmployee() {
     validateOnChange: false,
     onSubmit: (values, helpers) => {
       const employee: EmployeeData = {
+        id: v4(),
         name: values[CREATE_EMPLOYEE_FORM_VALUES.NAME],
         surname: values[CREATE_EMPLOYEE_FORM_VALUES.SURNAME],
         age: values[CREATE_EMPLOYEE_FORM_VALUES.AGE],
         job: values[CREATE_EMPLOYEE_FORM_VALUES.JOB],
       };
       setEmployeeData((prevValue) => {
-        return [...prevValue, employee]}
-      );
+        return [...prevValue, employee];
+      });
       helpers.resetForm();
       alert(
         `User ${values[CREATE_EMPLOYEE_FORM_VALUES.NAME]} ${

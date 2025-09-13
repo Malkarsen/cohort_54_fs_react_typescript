@@ -13,7 +13,6 @@ export const Header = styled.header`
   border: 2px solid rgba(0, 0, 0, 1);
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid black;
   padding: 20px 40px;
   color: white;
   background-color: rgba(250, 249, 255, 1);
@@ -47,7 +46,7 @@ export const HeaderLink = styled(NavLink)`
 export const Main = styled.main`
   display: flex;
   flex: 1;
-  padding: 40px;
+  padding: 50px;
   align-items: center;
   justify-content: center;
   background-color: rgba(17, 34, 51, 1);
