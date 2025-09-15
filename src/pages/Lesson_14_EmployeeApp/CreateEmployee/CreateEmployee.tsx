@@ -16,20 +16,22 @@ function CreateEmployee() {
 
   const validationSchema = Yup.object().shape({
     [CREATE_EMPLOYEE_FORM_VALUES.NAME]: Yup.string()
+      .trim()
       .required("Name field is required")
       .min(2, "Name field should contain minimum 2 characters")
       .max(50, "Name field should contain maximum 50 characters"),
     [CREATE_EMPLOYEE_FORM_VALUES.SURNAME]: Yup.string()
+      .trim()
       .required("Surname field is required")
       .max(15, "Surname field should contain maximum 15 characters"),
     [CREATE_EMPLOYEE_FORM_VALUES.AGE]: Yup.string()
+      .trim()
       .required("Age field is required")
       .min(1, "Age field should contain minimum 1 characters")
       .max(3, "Age field should contain maximum 3 characters"),
-    [CREATE_EMPLOYEE_FORM_VALUES.JOB]: Yup.string().max(
-      30,
-      "Job field should contain maximum 30 characters"
-    ),
+    [CREATE_EMPLOYEE_FORM_VALUES.JOB]: Yup.string()
+      .trim()
+      .max(30, "Job field should contain maximum 30 characters"),
   });
 
   const formik = useFormik({
@@ -55,8 +57,8 @@ function CreateEmployee() {
       });
       helpers.resetForm();
       alert(
-        `User ${values[CREATE_EMPLOYEE_FORM_VALUES.NAME]} ${
-          values[CREATE_EMPLOYEE_FORM_VALUES.SURNAME]
+        `User ${values[CREATE_EMPLOYEE_FORM_VALUES.NAME].trim()} ${
+          values[CREATE_EMPLOYEE_FORM_VALUES.SURNAME].trim()
         } successfully created`
       );
     },

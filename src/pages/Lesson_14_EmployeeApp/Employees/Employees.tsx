@@ -41,10 +41,10 @@ function Employees() {
           <CardInfoTitle>Age</CardInfoTitle>
           <CardInfoContent>{employee?.age}</CardInfoContent>
         </CardInfo>
-        <CardInfo>
+        {!!employee?.job && <CardInfo>
           <CardInfoTitle>Job Position</CardInfoTitle>
           <CardInfoContent>{employee?.job}</CardInfoContent>
-        </CardInfo>
+        </CardInfo>}
         <Button
           buttonName="Delete"
           isRed
