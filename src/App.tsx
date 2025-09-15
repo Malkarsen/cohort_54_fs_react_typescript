@@ -11,9 +11,13 @@ import GlobalStyles from "styles/GlobalStyles";
 // import Instagram from "pages/EmployeeApp/Clients/Instagram/Instagram";
 // import YouTube from "pages/EmployeeApp/Clients/YouTube/YouTube";
 // import { ROUTES } from "constants/routes";
+import CreateEmployee from "pages/Lesson_14_EmployeeApp/CreateEmployee/CreateEmployee";
+import Employees from "pages/Lesson_14_EmployeeApp/Employees/Employees";
+import { ROUTES } from "pages/Lesson_14_EmployeeApp/constants/routes";
 
 // Components
 // import Layout from "components/Layout/Layout";
+import Layout from "pages/Lesson_14_EmployeeApp/Layout/Layout";
 
 // Lessons
 // import Lesson_06 from 'lessons/Lesson_06_React_Typescript/Lesson_06';
@@ -31,7 +35,7 @@ import GlobalStyles from "styles/GlobalStyles";
 // import Homework_08 from "homeworks/Homework_08_React_Emotion/Homework_08";
 // import Homework_09 from "homeworks/Homework_09_Controlled-Uncontrolled_components,_useEffect/Homework_09";
 // import Homework_11 from "homeworks/Homework_11_React_Formik,_yup/Homework_11";
-import Homework_13 from "homeworks/Homework_13_React_useContext/Homework_13";
+// import Homework_13 from "homeworks/Homework_13_React_useContext/Homework_13";
 
 // Consultations
 // import Consultation_03 from 'consultations/Consultation_03_map_jsx/Consultation_03';
@@ -55,6 +59,15 @@ function App() {
         </Routes>
       </Layout> */}
 
+      <Layout>
+        <Routes>
+          <Route path={ROUTES.HOME} element={<CreateEmployee />} />
+          <Route path={ROUTES.CREATE_EMPLOYEE} element={<CreateEmployee />} />
+          <Route path={ROUTES.EMPLOYEES} element={<Employees />} />
+          <Route path={ROUTES.NOT_FOUND} element="Page Not Found" />
+        </Routes>
+      </Layout>
+
       {/* lessons */}
       {/* <Lesson_06 /> */}
       {/* <Lesson_07 /> */}
@@ -64,6 +77,7 @@ function App() {
       {/* <Lesson_10_group /> */}
       {/* <Lesson_11 /> */}
       {/* <Lesson_13 /> */}
+      
 
       {/* Homeworks */}
       {/* <Homework_06 /> */}
@@ -71,7 +85,7 @@ function App() {
       {/* <Homework_08 /> */}
       {/* <Homework_09 /> */}
       {/* <Homework_11 /> */}
-      <Homework_13 />
+      {/* <Homework_13 /> */}
 
       {/* Consultations */}
       {/* <Consultation_03 /> */}
